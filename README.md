@@ -56,6 +56,22 @@ Les chemins relatifs conviennent aussi à une publication sous `/nom-du-depot/`.
 - Vérifier les autorisations de diffusion des captures. Les captures SPAT sont présentées avec des données fictives ; ne pas y substituer de données réelles confidentielles.
 - Tester la démo NaturaLodge, le téléchargement du CV, l’e-mail et le profil GitHub.
 - Tester les deux thèmes sur mobile, tablette et ordinateur, ainsi que la navigation au clavier et la galerie.
-- Ajouter les métadonnées d’URL canonique et de partage absolues une fois le domaine public choisi. Aucune URL de portfolio n’a été inventée.
+- Vérifier que l’adresse publique reste `https://tiavinamalalaniaina.github.io/portfolio/`. En cas de changement de domaine, modifier les URL canoniques, Open Graph, les données structurées et `sitemap.xml`.
+
+## Référencement du site publié
+
+Adresse de référence : https://tiavinamalalaniaina.github.io/portfolio/
+
+Les quatre pages déclarent leur URL canonique, leurs métadonnées de partage et des données structurées JSON-LD. L’accueil décrit le profil avec `Person` ; les pages projet déclarent un fil d’Ariane. Les aperçus de partage utilisent uniquement le portrait ou les captures déjà présents. Le sitemap contient les quatre pages, sans dates de modification inventées.
+
+Après publication des fichiers :
+
+1. Ajouter la propriété **Préfixe de l’URL** `https://tiavinamalalaniaina.github.io/portfolio/` dans Google Search Console.
+2. Valider la propriété avec la méthode fournie par Google. Une balise HTML de vérification doit contenir le jeton exact de votre compte ; aucun jeton provisoire n’est inclus.
+3. Soumettre `https://tiavinamalalaniaina.github.io/portfolio/sitemap.xml`.
+4. Inspecter les quatre URL et demander leur indexation si nécessaire.
+5. Contrôler les performances du site hébergé avec PageSpeed Insights et les données structurées avec le test des résultats enrichis de Google. Le balisage `Person` ne garantit pas un résultat enrichi.
+
+Un `robots.txt` placé dans `/portfolio/` ne contrôle pas l’exploration du site : les robots consultent celui de la racine `https://tiavinamalalaniaina.github.io/robots.txt`. Ce projet ne crée donc pas de fichier trompeur dans son sous-dossier. Si vous gérez un dépôt distinct pour la racine du domaine, vous pouvez y déclarer l’adresse absolue du sitemap, sans bloquer `/portfolio/`.
 
 La police Manrope est chargée via Google Fonts ; la police sans-serif du système prend le relais si son chargement échoue. Aucun outil de suivi n’est intégré. Aucun code source privé des projets n’est inclus.
