@@ -58,4 +58,4 @@ Les chemins relatifs conviennent aussi à une publication sous `/nom-du-depot/`.
 - Tester les deux thèmes sur mobile, tablette et ordinateur, ainsi que la navigation au clavier et la galerie.
 - Ajouter les métadonnées d’URL canonique et de partage absolues une fois le domaine public choisi. Aucune URL de portfolio n’a été inventée.
 
-Les polices Google sont facultatives : Georgia, sans-serif et monospace prennent le relais si leur chargement échoue. Aucun outil de suivi n’est intégré. Aucun code source privé des projets n’est inclus.
+La police Manrope est chargée via Google Fonts ; la police sans-serif du système prend le relais si son chargement échoue. Aucun outil de suivi n’est intégré. Aucun code source privé des projets n’est inclus.
