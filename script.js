@@ -1,5 +1,43 @@
 'use strict';
 
+// Reserve the fixed header height and keep anchor targets visible.
+const siteHeader = document.querySelector('.site-header');
+if (siteHeader) {
+  const updateHeaderOffset = () => {
+    const top = parseFloat(getComputedStyle(siteHeader).top) || 0;
+    document.documentElement.style.setProperty('--header-height', `${Math.ceil(siteHeader.getBoundingClientRect().height)}px`);
+    document.documentElement.style.setProperty('--header-offset', `${Math.ceil(siteHeader.getBoundingClientRect().height + top + 16)}px`);
+  };
+  updateHeaderOffset();
+  if ('ResizeObserver' in window) new ResizeObserver(updateHeaderOffset).observe(siteHeader);
+  else window.addEventListener('resize', updateHeaderOffset);
+}
+
+const menuButton = document.querySelector('.menu-toggle');
+const headerMenu = document.querySelector('.header-menu');
+if (siteHeader && menuButton && headerMenu) {
+  const mobileNavigation = matchMedia('(max-width: 980px)');
+  const setMenuOpen = (open, returnFocus = false) => {
+    siteHeader.classList.toggle('menu-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    if (returnFocus) menuButton.focus();
+  };
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true'));
+  headerMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && siteHeader.classList.contains('menu-open')) setMenuOpen(false, true);
+  });
+  document.addEventListener('click', event => {
+    if (!siteHeader.contains(event.target)) setMenuOpen(false);
+  });
+  siteHeader.addEventListener('focusout', event => {
+    if (!siteHeader.contains(event.relatedTarget)) setMenuOpen(false);
+  });
+  mobileNavigation.addEventListener('change', () => setMenuOpen(false));
+}
+
 const themeButton = document.querySelector('.theme-toggle');
 const systemTheme = matchMedia('(prefers-color-scheme: light)');
 let manualTheme = false;

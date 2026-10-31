@@ -13,7 +13,9 @@ Ouvrir `index.html` dans un navigateur. Pour les vérifications, servir de préf
 - Galeries : agrandissement, boutons précédent/suivant, flèches du clavier, Échap et retour du focus. Sans JavaScript, les liens ouvrent les images originales.
 - Mode clair et sombre : préférence du système au premier accès, puis choix mémorisé dans le navigateur. Si le stockage est bloqué, la bascule fonctionne pour la visite en cours.
 - Bascule du thème avec icônes soleil/lune et libellés accessibles. Logos des technologies en SVG locaux (sources et licences dans `assets/technologies/`).
+- En-tête fixe avec menu mobile repliable, fermeture avec Échap ou après sélection et décalage automatique des ancres sous la navigation.
 - Projet SPAT : application décisionnelle et pipeline ELT avec Python et dbt.
+- Logos locaux de la SPAT, de RNA Dev, d’IT University et de l’Université Côte d’Azur, avec leurs sources dans `assets/entities/SOURCES.md`.
 - CV PDF téléchargeable, e-mail et GitHub.
 - Démo publique NaturaLodge : https://naturalodge.onrender.com.
 - Images chargées progressivement, dimensions réservées et animations réduites selon les préférences d’accessibilité.
